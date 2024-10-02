@@ -242,10 +242,13 @@ void injectAmmo(std::monostate)
 		}
 	}
 	
-
+	TESGlobal* gSellPercent = (TESGlobal*)DH->LookupForm(0x0021, "AL_SimpleAmmoLimit.esp");
+	float sellPercent = gSellPercent ? gSellPercent->value : 100;
 	// 배열에 저장한 탄약을 탄약제한 수량과 비교해 상인 상자에 더함
+
+
 	for (TESAmmo* ammo : sellAmmoArray) {
-		int ammoCapacity = calculateAmmoLimit(ammo);
+		int ammoCapacity = calculateAmmoLimit(ammo) * (sellPercent / 100);
 		uint32_t ammoCount = 0;
 		p->GetItemCount(ammoCount, ammo, false);
 
