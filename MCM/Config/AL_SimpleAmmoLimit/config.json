@@ -1,0 +1,104 @@
+{
+  "modName": "AL_SimpleAmmoLimit",
+  "displayName": "간편한 탄약제한과 탄약구입",
+  "minMcmVersion": 1,
+  "pluginRequirements": ["AL_SimpleAmmoLimit.esp"],
+  "content": [
+
+    {
+      "text": "지정된 숫자 이상의 탄약을 먹으면 땅에 버립니다. 제한수는 탄약의 무게에 따라 다릅니다. 빌리징 작업대의 상점 -> 무기 탭에서 탄약을 구입하고 소지제한을 늘리는 장치를 만들수 있습니다",
+      "type": "text"
+    },
+    {
+      "type": "spacer"
+    },
+    {
+      "text" : "탄약 제한량 설정",
+      "type": "section"
+    },
+        {
+          "text": "기본 탄약 수량",
+          "type": "slider",
+          "help": "탄의 무게와 별도로 기본적으로 이 수치의 탄약을 더 소지할수 있습니다",
+          "valueOptions": {
+            "min": 10,
+            "max": 300,
+            "step": 10,
+            "sourceType": "GlobalValue",
+            "sourceForm": "AL_SimpleAmmoLimit.esp|13"}
+          },
+        {
+          "text": "탄약 총무게 제한",
+          "type": "slider",
+          "help": "이 수치에 탄종 별로 esp에 적힌 무게의 수치를 나눈값만큼 탄약을 들수 있습니다. 총 소지량에서 20단위로 올림합니다",
+          "valueOptions": {
+            "min": 1,
+            "max": 20,
+            "step": 0.5,
+            "sourceType": "GlobalValue",
+            "sourceForm": "AL_SimpleAmmoLimit.esp|14"}
+          },
+        {
+          "text": "탄약 최소무게 보정",
+          "type": "slider",
+          "help": "탄약이 너무 가벼울 경우 이 수치로 무게가 조정됩니다",
+          "valueOptions": {
+            "min": 0.01,
+            "max": 0.1,
+            "step": 0.001,
+            "sourceType": "GlobalValue",
+            "sourceForm": "AL_SimpleAmmoLimit.esp|12"}
+          },
+    {
+      "type": "spacer"
+    },
+    {
+      "text" : "그 외 설정",
+      "type": "section"
+    },
+        {
+          "text": "탄약 높이",
+          "type": "slider",
+          "help": "탄약이 초과되어 버려질때때 생성되는 높이 입니다",
+          "valueOptions": {
+            "min": 30,
+            "max": 120,
+            "step": 5,
+            "sourceType": "GlobalValue",
+            "sourceForm": "AL_SimpleAmmoLimit.esp|10"}
+          },
+        {
+          "text": "탄약 거리",
+          "type": "slider",
+          "help": "탄약이 초과되어 버려질때 생성되는 거리 입니다. 기본적으로 오른쪽으로 버립니다",
+          "valueOptions": {
+            "min": 15,
+            "max": 60,
+            "step": 5,
+            "sourceType": "GlobalValue",
+            "sourceForm": "AL_SimpleAmmoLimit.esp|11"}
+          },
+        {
+          "text": "탄약 거래시 매력 패널티",
+          "type": "slider",
+          "help": "탄약 자판기와 거래시 일시적으로 매력이 하락해 거래가격에 패널티가 있습니다. 내려가는 매력 수치를 조절합니다",
+          "valueOptions": {
+            "min": 0,
+            "max": 10,
+            "step": 5,
+            "sourceType": "GlobalValue",
+            "sourceForm": "AL_SimpleAmmoLimit.esp|20"}
+          },
+        {
+          "text": "소지제한을 늘릴때마다 늘어나는 비용",
+          "type": "slider",
+          "help": "소지제한을 늘릴때 추가되는 병뚜껑의 양입니다",
+          "valueOptions": {
+            "min": 1000,
+            "max": 10000,
+            "step": 1000,
+            "sourceType": "GlobalValue",
+            "sourceForm": "AL_SimpleAmmoLimit.esp|16"}
+          }
+  ]
+}
